@@ -32,18 +32,36 @@ export default function Home() {
             Next.js Leaflet Starter
           </h1>
 
-          <Map className={styles.homeMap} width="800" height="400" center={DEFAULT_CENTER} zoom={12}>
+          <Map className={styles.homeMap} width="800" height="400" center={[0, 0]} zoom={1}>
             {({ TileLayer, Marker, Popup }) => (
               <>
                 <TileLayer
                   url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                   attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
                 />
-                <Marker position={DEFAULT_CENTER}>
-                  <Popup>
-                    A pretty CSS3 popup. <br /> Easily customizable.
-                  </Popup>
-                </Marker>
+                {data?.destinations?.map(({ id, arrival, departure, location, city, region }) => {
+                  const arrivalDate = new Date(arrival);
+                  const arrivalHours = arrivalDate.getHours()
+                  const arrivalMinutes = arrivalDate.getMinutes()
+                  const arrivalTime = `${arrivalHours}:${arrivalMinutes}`;
+
+                  const departureDate = new Date(departure);
+                  const departureHours = departureDate.getHours()
+                  const departureMinutes = departureDate.getMinutes()
+                  const departureTime = `${departureHours}:${departureMinutes}`;
+
+                  return (
+                    <Marker key={id} position={[location.lat, location.lng]}>
+                      <Popup>
+                        <strong>Location:</strong> { city }, { region }
+                        <br />
+                        <strong>Arrival:</strong> { arrivalDate.toDateString() } @ { arrivalTime }
+                        <br />
+                        <strong>Departure:</strong> { arrivalDate.toDateString() } @ { departureTime }
+                      </Popup>
+                    </Marker>
+                  )
+                })}
               </>
             )}
           </Map>
