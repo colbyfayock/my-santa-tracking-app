@@ -20,7 +20,7 @@ export default function Home() {
   );
 
   // Uncomment to test Santa's location at 2:34:30 UTC
-  // const currentDate = new Date('2022-12-25T02:34:30.115Z');
+  // const currentDate = new Date('2022-12-24T23:29:30.115Z');
   const currentDate = new Date(Date.now());
   const currentYear = currentDate.getFullYear();
 
@@ -50,8 +50,8 @@ export default function Home() {
 
       <Section>
         <Container>
-          <h1 className={styles.title}>
-            Next.js Leaflet Starter
+          <h1 className="sr-only">
+            Santa Tracker
           </h1>
 
           <Map className={styles.homeMap} width="800" height="400" center={[0, 0]} zoom={1}>
@@ -119,14 +119,6 @@ export default function Home() {
               </>
             )}
           </Map>
-
-          <p className={styles.description}>
-            <code className={styles.code}>yarn create next-app -e https://github.com/colbyfayock/next-leaflet-starter</code>
-          </p>
-
-          <p className={styles.view}>
-            <Button href="https://github.com/colbyfayock/next-leaflet-starter">Vew on GitHub</Button>
-          </p>
         </Container>
       </Section>
     </Layout>
