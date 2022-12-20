@@ -19,6 +19,8 @@ export default function Home() {
     fetcher
   );
 
+  // Uncomment to test Santa's location at 2:34:30 UTC
+  // const currentDate = new Date('2022-12-25T02:34:30.115Z');
   const currentDate = new Date(Date.now());
   const currentYear = currentDate.getFullYear();
 
@@ -60,6 +62,7 @@ export default function Home() {
                   attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
                 />
                 {destinations?.map(({ id, arrival, departure, location, city, region }) => {
+
                   const arrivalDate = new Date(arrival);
                   const arrivalHours = arrivalDate.getHours()
                   const arrivalMinutes = arrivalDate.getMinutes()
@@ -70,14 +73,37 @@ export default function Home() {
                   const departureMinutes = departureDate.getMinutes()
                   const departureTime = `${departureHours}:${departureMinutes}`;
 
+                  const santaWasHere = currentDate.getTime() - departureDate.getTime() > 0;
+                  const santaIsHere = currentDate.getTime() - arrivalDate.getTime() > 0 && !santaWasHere;
+
+                  let iconUrl = '/images/tree-marker-icon.png';
+                  let iconRetinaUrl = '/images/tree-marker-icon-2x.png';
+
+                  if ( santaWasHere ) {
+                    iconUrl = '/images/gift-marker-icon.png';
+                    iconRetinaUrl = '/images/gift-marker-icon-2x.png';
+                  }
+
+                  if ( santaIsHere ) {
+                    iconUrl = '/images/santa-marker-icon.png';
+                    iconRetinaUrl = '/images/santa-marker-icon-2x.png';
+                  }
+
+                  let className = '';
+
+                  if ( santaIsHere ) {
+                    className = `${className} ${styles.iconSantaIsHere}`;
+                  }
+
                   return (
                     <Marker
                       key={id}
                       position={[location.lat, location.lng]}
                       icon={Leaflet.icon({
-                        iconUrl: '/images/tree-marker-icon.png',
-                        iconRetinaUrl: '/images/tree-marker-icon-2x.png',
-                        iconSize: [41, 41]
+                        iconUrl,
+                        iconRetinaUrl,
+                        iconSize: [41, 41],
+                        className
                       })}
                     >
                       <Popup>
