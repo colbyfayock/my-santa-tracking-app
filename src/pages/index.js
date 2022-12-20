@@ -18,6 +18,26 @@ export default function Home() {
     'https://firebasestorage.googleapis.com/v0/b/santa-tracker-firebase.appspot.com/o/route%2Fsanta_en.json?alt=media&2018b',
     fetcher
   );
+
+  const currentDate = new Date(Date.now());
+  const currentYear = currentDate.getFullYear();
+
+  const destinations = data?.destinations.map((destination) => {
+    const { arrival, departure } = destination;
+
+    const arrivalDate = new Date(arrival);
+    const departureDate = new Date(departure);
+
+    arrivalDate.setFullYear(currentYear);
+    departureDate.setFullYear(currentYear);
+
+    return {
+      ...destination,
+      arrival: arrivalDate.getTime(),
+      departure:  departureDate.getTime(),
+    }
+  });
+
   return (
     <Layout>
       <Head>
@@ -39,7 +59,7 @@ export default function Home() {
                   url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                   attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
                 />
-                {data?.destinations?.map(({ id, arrival, departure, location, city, region }) => {
+                {destinations?.map(({ id, arrival, departure, location, city, region }) => {
                   const arrivalDate = new Date(arrival);
                   const arrivalHours = arrivalDate.getHours()
                   const arrivalMinutes = arrivalDate.getMinutes()
