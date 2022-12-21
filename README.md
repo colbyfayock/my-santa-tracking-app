@@ -1,34 +1,15 @@
-# 🍃 Next.js Leaflet Starter
+# Build a Santa Tracker with Next.js & React Leaflet
 
-Jumpstart your new Next.js mapping project with Leaflet!
+Demo for tutorial [How to Build a Santa Tracker App with Next.js & React Leaflet](https://www.youtube.com/watch?v=kklt5gDs6Qw)
 
-## ⚡ Quick Deploy
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/colbyfayock/next-leaflet-starter) [![Deploy with Vercel Now](https://zeit.co/button)](https://vercel.com/import/project?template=https://github.com/colbyfayock/next-leaflet-starter)
+📝 Article: Coming soon...
 
+📺 Video: https://www.youtube.com/watch?v=kklt5gDs6Qw
 
-## 🧰 What This Includes
-* [Yarn](https://yarnpkg.com/en/)
-* [Next.js](https://nextjs.org/)
-* [Leaflet](https://leafletjs.com/)
-* [React Leaflet](https://react-leaflet.js.org)
+## More tutorials and walkthroughs
 
-## 🚀 Getting Started
+🐦 [Follow me on Twitter](https://twitter.com/colbyfayock)
 
-### Requirements
-* [Yarn](https://yarnpkg.com/en/)
+📺 [Subscribe on YouTube](https://www.youtube.com/colbyfayock)
 
-### Quick Start
-```
-yarn create next-app -e https://github.com/colbyfayock/next-leaflet-starter my-leaflet-app
-```
-
-### Running the Project
-First, run the development server:
-
-```bash
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+✉️ [Sign Up for My Newsletter](https://colbyfayock.com/newsletter)
