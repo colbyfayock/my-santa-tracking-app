@@ -4,7 +4,7 @@ Demo for tutorial [How to Build a Santa Tracker App with Next.js & React Leaflet
 
 🚀 Demo: https://my-santa-tracking-app.netlify.app/
 
-📝 Article: Coming soon...
+📝 Article: https://www.freecodecamp.org/news/how-to-build-a-santa-tracker-app-with-next-js-react-leaflet/
 
 📺 Video: https://www.youtube.com/watch?v=kklt5gDs6Qw
 
